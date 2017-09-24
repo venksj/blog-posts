@@ -4,23 +4,18 @@
     </head>
 
     <body>
-        <p> Hello, there! </p>
-
         <div>
             <h1><a href="">Venkatesh's Blog</a></h1>
         </div>
 
+        {% for p in posts %}
         <div>
-            <p>published: 24.09.2017, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.</p>
+            <h2><a href="/posts/{{p.id}}">{{p.title}}</a></h2>
+            <p>{{ p.text|linebreaks }}</p>
+            <p>Published On: {{ p.published_date }}</p>
+            <p>Created On: {{ p.created_date }}</p>
         </div>
-
-        <div>
-            <p>published: 24.09.2017, 17:10</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.</p>
-        </div>
+        {% endfor %}
 
     </body>
 
